@@ -17,6 +17,8 @@ public class HelicopterController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,9 @@ public class HelicopterController : MonoBehaviour
 
     void onCollisionEnter (Collision collision)
     {
-       // if (other.)
+        if (collision.gameObject.CompareTag("Soldier"))
+        {
+            Debug.Log("Collided with an object tagged 'Soldier'!");
+        }
     }
 }
