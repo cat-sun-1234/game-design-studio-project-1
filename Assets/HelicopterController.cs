@@ -10,6 +10,9 @@ public class HelicopterController : MonoBehaviour
     [SerializeField]
     private Vector2 moveDirection;
 
+    [SerializeField]
+    private GameManager gameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,5 +37,10 @@ public class HelicopterController : MonoBehaviour
     {
         rb2d.linearVelocity = moveDirection * moveSpeed;
     }
+    }
+
+    void onCollisionEnter (Collision collision)
+    {
+       // if (other.)
     }
 }
