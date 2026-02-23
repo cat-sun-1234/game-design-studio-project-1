@@ -13,12 +13,17 @@ public class HelicopterController : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
 
+    [SerializeField]
+    private AudioSource source;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
 
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,6 +55,7 @@ public class HelicopterController : MonoBehaviour
             {
                 gameManager.soldiersInHelicopter++;
                 gameManager.soldiersOnField--;
+                source.Play();
                 GameObject.Destroy(other.gameObject);
             }
 
