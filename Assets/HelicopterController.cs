@@ -41,11 +41,34 @@ public class HelicopterController : MonoBehaviour
     }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+       // if (other.gameObject.CompareTag("Soldier"))
+       // {
+      ///      Debug.Log("Collided with an object tagged 'Soldier'!");
+      //  }
+      //  if (other..gameObject.CompareTag("Tree"))
+     //   {
+      //      Debug.Log("Collided with an object tagged 'Tree'!");
+     //   }
+     //   if (other..gameObject.tag == "Base")
+     //   {
+     //       Debug.Log("Collided with an object tagged 'Base'!");
+     //   }
+    }
     void onCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.CompareTag("Soldier"))
-        {
-            Debug.Log("Collided with an object tagged 'Soldier'!");
-        }
+       // if (collision.gameObject..CompareTag("Soldier"))
+       // {
+       //     Debug.Log("Collided with an object tagged 'Soldier'!");
+       // }
+      //  if (collision.gameObject.CompareTag("Tree"))
+       // {
+      //      Debug.Log("Collided with an object tagged 'Tree'!");
+     //   }
+      //  if (collision.gameObject.CompareTag("Base"))
+      //  {
+     //       Debug.Log("Collided with an object tagged 'Base'!");
+     //   }
     }
 }
