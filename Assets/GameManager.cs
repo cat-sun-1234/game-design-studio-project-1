@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -34,7 +34,12 @@ public class GameManager : MonoBehaviour
            RestartGame();
         }
 
-       if (soldiersOnField == 0 && soldiersInHelicopter == 0)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (soldiersOnField == 0 && soldiersInHelicopter == 0)
         {
             Victory();
         }
