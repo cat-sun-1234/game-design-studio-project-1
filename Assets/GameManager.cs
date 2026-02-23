@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int soldiersInHelicopter = 0;
     public int soldiersRescued = 0;
-    public int soldiersOnField;
+    public int soldiersOnField = 5;
 
     [SerializeField]
     private Text VictoryGameOverText;
@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() 
     {
-        GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Soldier");
-        foreach (var soldier in soldiers)
-        {
-            soldiersOnField++;
-        }
+        // GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Soldier");
+        // foreach (var soldier in soldiers)
+        // {
+        //     soldiersOnField++;
+        // }
+
+
         VictoryGameOverText = this.GetComponent<Text>();
         //VictoryGameOverText.text = "Hello";
     }
