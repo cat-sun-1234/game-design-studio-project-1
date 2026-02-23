@@ -31,10 +31,16 @@ public class GameManager : MonoBehaviour
        {
            RestartGame();
         }
+
+       if (soldiersOnField == 0 && soldiersInHelicopter == 0)
+        {
+            Victory();
+        }
     }
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

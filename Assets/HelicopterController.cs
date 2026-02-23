@@ -14,7 +14,7 @@ public class HelicopterController : MonoBehaviour
     private GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
 
@@ -26,8 +26,8 @@ public class HelicopterController : MonoBehaviour
     {
 
             // Get horizontal and vertical input (from arrow keys or WASD)
-            float moveHorizontal = Input.GetAxis("Horizontal"); //
-            float moveVertical = Input.GetAxis("Vertical");     //
+            float moveHorizontal = Input.GetAxis("Horizontal"); 
+            float moveVertical = Input.GetAxis("Vertical");     
 
             // Calculate movement vector
             moveDirection = new Vector2(moveHorizontal, moveVertical);
@@ -41,34 +41,44 @@ public class HelicopterController : MonoBehaviour
     }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Soldier"))
         {
             Debug.Log("Collided with an object tagged 'Soldier'!");
+            if (gameManager.soldiersInHelicopter < 3)
+            {
+                gameManager.soldiersInHelicopter++;
+                gameManager.soldiersOnField--;
+                GameObject.Destroy(other.gameObject);
+            }
+
         }
-        if (other..gameObject.CompareTag("Tree"))
+        if (other.gameObject.CompareTag("Tree"))
         {
             Debug.Log("Collided with an object tagged 'Tree'!");
+            gameManager.GameOver();
         }
-        if (other..gameObject.tag == "Base")
+        if (other.gameObject.CompareTag("Base"))
         {
             Debug.Log("Collided with an object tagged 'Base'!");
+            gameManager.soldiersRescued += gameManager.soldiersInHelicopter;
+            gameManager.soldiersInHelicopter = 0;
         }
     }
-    void onCollisionEnter (Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Soldier"))
-        {
-            Debug.Log("Collided with an object tagged 'Soldier'!");
-        }
-        if (collision.gameObject.CompareTag("Tree"))
-        {
-            Debug.Log("Collided with an object tagged 'Tree'!");
-        }
-        if (collision.gameObject.CompareTag("Base"))
-        {
-           Debug.Log("Collided with an object tagged 'Base'!");
-        }
-    }
+   // void onCollisionEnter2D (Collision collision)
+   // {
+   //     if (collision.gameObject.CompareTag("Soldier"))
+   //     {
+   //         Debug.Log("Collided with an object tagged 'Soldier'!");
+   //     }
+   //     if (collision.gameObject.CompareTag("Tree"))
+   //     {
+   //         Debug.Log("Collided with an object tagged 'Tree'!");
+   //     }
+   //     if (collision.gameObject.CompareTag("Base"))
+    //    {
+    //       Debug.Log("Collided with an object tagged 'Base'!");
+   //     }
+    // }
 }
