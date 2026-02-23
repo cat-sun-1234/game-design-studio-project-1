@@ -40,13 +40,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver ()
     {
-        VictoryGameOverText = "Game Over";
+        VictoryGameOverText.text = "Game Over";
         Time.timeScale = 0;
     }
 
     public void Victory ()
     {
-        VictoryGameOverText = "You Win";
+        VictoryGameOverText.text = "You Win";
         Time.timeScale = 0;
     }
 }
